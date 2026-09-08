@@ -14,7 +14,7 @@
             ["node:fs" :as fs]
             ["node:os" :as os]
             ["node:path" :as path]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [macos-inventory.core :as c]))
 
 ;; ---------------------------------------------------------------------------
@@ -68,7 +68,7 @@
   (if-not (and p (exists? p))
     :unknown
     (let [cs (sh "/usr/bin/codesign" ["-dv" "--verbose=4" p] {:timeout-ms 8000})
-          dev-id? (str/includes? (str/lower-case (:err cs)) "authority=developer id application")
+          dev-id? (str/includes? (str/lower (:err cs)) "authority=developer id application")
           notarized? (when dev-id?
                        (c/parse-spctl-notarized?
                         (let [r (sh "/usr/sbin/spctl" ["-a" "-vv" "-t" "exec" p]
