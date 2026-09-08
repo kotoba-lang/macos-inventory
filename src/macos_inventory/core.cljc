@@ -9,7 +9,7 @@
   and `kmutil` all emit shapes that are easy to almost-parse. A signature verdict
   derived from a misread line is worse than no verdict, because it is reported
   with the same confidence as a correct one."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 ;; ---------------------------------------------------------------------------
 ;; vocabularies
@@ -82,7 +82,7 @@
   `notarized?` is the result of a separate spctl call; Developer ID says who
   signed a thing, only spctl says Apple notarized it."
   [{:keys [stderr exit notarized?]}]
-  (let [t (str/lower-case (or stderr ""))]
+  (let [t (str/lower (or stderr ""))]
     (cond
       (str/includes? t "not signed at all") :unsigned
       (str/includes? t "invalid signature") :broken
@@ -97,11 +97,11 @@
       :else :unknown)))
 
 (defn parse-spctl-notarized? [{:keys [stdout stderr]}]
-  (let [t (str/lower-case (str stdout " " stderr))]
+  (let [t (str/lower (str stdout " " stderr))]
     (boolean (and (str/includes? t "accepted") (str/includes? t "notarized")))))
 
 (defn parse-gatekeeper [{:keys [stdout]}]
-  (let [t (str/lower-case (or stdout ""))]
+  (let [t (str/lower (or stdout ""))]
     (cond
       (str/includes? t "assessments enabled") :enabled
       (str/includes? t "assessments disabled") :disabled
