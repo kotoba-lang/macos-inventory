@@ -1,6 +1,6 @@
 (ns macos-inventory.cli
   "Dump the inventory. Read-only; no probe here can prompt."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [macos-inventory.host :as h]))
 
 (defn -main [& argv]
