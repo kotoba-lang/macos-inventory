@@ -83,7 +83,7 @@ is reported with exactly the same confidence as a correct one.
 
 ```sh
 npm test      # 19 tests / 52 assertions — parsers against real captured output
-clj -M:test   # the .cljc core on the JVM
+kbb -M:test   # the .cljc core on the JVM
 ```
 
 ## Provenance

@@ -5,7 +5,7 @@
   "description": "Read-only inventory of macOS persistence, privacy grants, extensions, signatures and installed software.",
   "type": "module",
   "scripts": {
-    "test": "nbb --classpath src:test -m macos-inventory.test-runner",
-    "dump": "nbb --classpath src -m macos-inventory.cli"
+    "test": "kbb --backend sci --classpath src:test -m macos-inventory.test-runner",
+    "dump": "kbb --backend sci --classpath src -m macos-inventory.cli"
   }
 }
