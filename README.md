@@ -69,9 +69,9 @@ wrongdoing — not knowing is not a finding.
 ## Layout
 
 ```
-src/macos_inventory/core.cljc   pure: vocabularies + every parser
-src/macos_inventory/host.cljs   nbb: the probes
-src/macos_inventory/cli.cljs    nbb: dump
+src/macos_inventory/core.cljk   pure: vocabularies + every parser
+src/macos_inventory/host.cljk   nbb: the probes
+src/macos_inventory/cli.cljk    nbb: dump
 ```
 
 Parsers live in `core` and are tested against **verbatim captured command
