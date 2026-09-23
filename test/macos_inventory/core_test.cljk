@@ -3,7 +3,7 @@
   is verbatim command output — the shapes are all easy to almost-parse, and a
   verdict derived from a misread line is reported with the same confidence as a
   correct one."
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [macos-inventory.core :as c]))
 
 ;; --- codesign ---------------------------------------------------------------
